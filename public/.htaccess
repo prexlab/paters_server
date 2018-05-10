@@ -1,0 +1,38 @@
+DirectoryIndex index.php .ht
+RewriteEngine on
+RewriteBase /
+
+RewriteCond %{HTTP_HOST} ^(www.dtv77899.sakura.ne.jp)(:80)? [OR]
+RewriteCond %{HTTP_HOST} ^(dtv77899.sakura.ne.jp)(:80)?
+RewriteRule ^(.*) http://simulator.dqc.jp/$1 [R=301,L]
+
+# BEGIN crawler
+SetEnvIf User-Agent "[Bb]aidu" deny_ref
+SetEnvIf User-Agent "[Yy]eti" deny_ref
+SetEnvIf User-Agent "ICC\-Crawler" deny_ref
+SetEnvIf User-Agent "SEOkicks\-Robot" deny_ref
+SetEnvIf User-Agent "bingbot" deny_ref
+SetEnvIf Referer "^http://www\.baidu\.jp" deny_ref
+SetEnvIf Referer "^http://www\.baidu\.com" deny_ref
+SetEnvIf Referer "^http://help\.naver\.com" deny_ref
+SetEnvIf Remote_Host "\.baidu\.jp" deny_ref
+SetEnvIf Remote_Host "\.baidu\.com" deny_ref
+SetEnvIf Remote_Host "\.hinet\.net" deny_ref
+SetEnvIf Remote_Host "\.naver\.com" deny_ref
+SetEnvIf Remote_Host "gw\.ucri\.jgn\-x\.jp" deny_ref
+SetEnvIf Remote_Host "static\.140\.58\.9\.176\.clients\.your-server\.de" deny_ref
+
+order allow,deny
+allow from all
+deny from env=deny_ref
+deny from 39.110.212.81
+
+<Files robots.txt>
+allow from all
+</Files>
+
+RewriteCond %{REQUEST_FILENAME} !(jpg|gif|png|pdf|css|js|swf|csv|ico)$ [NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)$ index.php?/$1?%{QUERY_STRING} [L]
+
