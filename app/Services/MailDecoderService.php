@@ -266,7 +266,19 @@ class MailDecoderService {
 
         $ret['token'] = $this->getTransToken($message);
 
+        $ret['text'] = $this->trimBodyText($ret['text']);
+
+
         return $ret;
+    }
+
+
+    function trimBodyText($text){
+
+        $text = preg_replace('/<http.+?>/', '', $text);
+        $text = preg_replace("/[\r\n]{2,}/", "\n", $text);
+
+        return $text;
     }
 
 

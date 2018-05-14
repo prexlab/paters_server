@@ -38,4 +38,20 @@ class MailDecoderServiceTest extends TestCase
         $this->assertEquals($email, 'text');
     }
 
+
+    public function testTrimBodyText()
+    {
+
+        $stdin = file_get_contents(storage_path().'/framework/testing/google_calendar_email.txt');
+
+        $mime = new MailDecoderService;
+        $email = $mime->myMimeDecode($stdin);
+
+        $text = $mime->trimBodyText($email['text']);
+
+        print_r($text);
+
+        $this->assertEquals($email, 'text');
+    }
+
 }
