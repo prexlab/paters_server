@@ -4,12 +4,12 @@ return [
 
     'site_name'=>'メールくん',
     'site_name_long'=>'メールくん',
-    'domain' => env('APP_DOMAIN', 'line_mail.dqc.jp'),
+    'domain' => env('APP_DOMAIN', 'line-email.dqc.jp'),
+    'email_domain' => env('EMAIL_DOMAIN', 'line.her.jp'),
 
     'trans_token_regexp' => '/r\+([A-Za-z0-9]{32})@line.her.jp/',
 
     'admin_email' => env('APP_ADMIN_EMAIL', 'prex.uchida@gmail.com'),
-    'receiver_email' => env('RECEIVER_EMAIL', 'receiver@line_email.dqc.jp'),
 
     /*
     |--------------------------------------------------------------------------

@@ -83,13 +83,13 @@ class LineService
         $body = "
 ご利用ありがとうございます。
 
-送信URLは
+送信先メールアドレスは
 {$transEmail}
 です。
 
 ";
         Mail::send(new Simple([
-            'from' => 'noreply@'.config('app.domain'),
+            'from' => 'noreply@'.config('app.email_domain'),
             'from_jp' => config('app.site_name'),
             'to' => $email,
             'subject' => 'パスコードを送信します',
