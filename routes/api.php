@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/callback', 'ApiController@callback');
+Route::get('/callback', 'ApiController@index');
 Route::post('/callback', 'ApiController@callback');
 
 
