@@ -74,7 +74,7 @@ class LineService
 
         $obj->user_id = $user_id;
         $obj->email = $email;
-        $obj->activate = 0;
+        $obj->activate = 1;
         $obj->token = md5($email);
         $obj->save();
 
