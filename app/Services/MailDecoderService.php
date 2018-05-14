@@ -275,8 +275,15 @@ class MailDecoderService {
 
     function trimBodyText($text){
 
-        $text = preg_replace('/<http.+?>/', '', $text);
         $text = preg_replace("/[\r\n]{2,}/", "\n", $text);
+
+        //googleカレンダー用設定
+        $text = preg_replace('/<http.+?>/', '', $text);
+        $text = preg_replace('/<.+?@.+>/', '', $text);
+        $text = preg_replace("/\[image:.+?\]/", "", $text);
+        $text = preg_replace("/次の登録済みカレンダーから.+$/us", "", $text);
+
+
 
         return $text;
     }
