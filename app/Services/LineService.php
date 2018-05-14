@@ -74,7 +74,7 @@ class LineService
 
         $obj->user_id = $user_id;
         $obj->email = $email;
-        $obj->activate = 1;
+        $obj->activate = 0;
         $obj->token = md5($email);
         $obj->save();
 
@@ -152,10 +152,13 @@ class LineService
 
         $obj = $this->emailModel
             ->whereToken($email['token'])
-            ->whereActivate(1)
             ->first();
 
         if($obj){
+
+            //受診時にアクティベイト。利用ごとに更新される
+            $obj->activate = 1;
+            $obj->save();
 
             $this->push($obj->user_id, ['type'=>'text', 'text' => "【{$email['subject']}】\n{$email['text']}"]);
 
