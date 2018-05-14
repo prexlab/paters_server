@@ -16,6 +16,10 @@ use Illuminate\Http\Request;
 Route::get('/callback', 'ApiController@callback');
 Route::post('/callback', 'ApiController@callback');
 
+
+Route::get('/receive_email/{file_name}', 'ApiController@receiveEmail');
+
+
 #Route::middleware('auth:api')->get('/user', function (Request $request) {
 #    return $request->user();
 #});

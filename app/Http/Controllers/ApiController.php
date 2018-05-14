@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Services\LineService;
+use App\Services\MailDecoderService;
 
 use Illuminate\Http\Request;
 
@@ -35,13 +36,26 @@ class ApiController extends Controller
         
     }
 
-    public function receiveEmail(){
+    public function receiveEmail($file_name){
 
-        $mime = new MailDecoderService;
-        $stdin = file_get_contents('php://input');
-        $email = $mime->myMimeDecode($stdin);
 
-        return $this->line->receiveEmail($email);
+        error_reporting(E_ALL & ~ E_DEPRECATED & ~ E_USER_DEPRECATED & ~ E_NOTICE);
+
+        $path = storage_path('emails/' . $file_name);
+
+        if (is_file($path)){
+
+            $mime = new MailDecoderService;
+
+            $stdin = file_get_contents($path);
+
+            $email = $mime->myMimeDecode($stdin);
+
+            return (string)$this->line->receiveEmail($email);
+
+        }
+
+
     }
 
 }

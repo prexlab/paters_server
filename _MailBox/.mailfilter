@@ -1,0 +1,3 @@
+cc "| /usr/local/bin/php -q /home/dtv77899/www/line_email/public/relay.php"
+
+
