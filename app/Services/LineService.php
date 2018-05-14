@@ -92,7 +92,7 @@ class LineService
             'from' => 'noreply@'.config('app.email_domain'),
             'from_jp' => config('app.site_name'),
             'to' => $email,
-            'subject' => 'パスコードを送信します',
+            'subject' => '送信用アドレスをお送りします',
             'body'=>  $body
         ]));
 
@@ -106,7 +106,7 @@ class LineService
 
         return [
             'type' => 'text',
-            'text' => $email . 'に送信用urlをお送りしました'
+            'text' => $email . ' に送信用アドレスをお送りしました'
         ];
 
     }
