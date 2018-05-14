@@ -7,7 +7,7 @@ return [
     'domain' => env('APP_DOMAIN', 'line-email.dqc.jp'),
     'email_domain' => env('EMAIL_DOMAIN', 'line.her.jp'),
 
-    'trans_token_regexp' => '/r\+([A-Za-z0-9]{32})@line.her.jp/',
+    'trans_token_regexp' => '/r\+(.{32})@line.her.jp/',
 
     'admin_email' => env('APP_ADMIN_EMAIL', 'prex.uchida@gmail.com'),
 

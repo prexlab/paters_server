@@ -65,7 +65,7 @@ class LineService
 
     static function getTransEmail($token){
 
-        return str_replace('([0-9]+)', $token, config('app.trans_token_regexp'));
+        return str_replace('(.{32})', $token, config('app.trans_token_regexp'));
     }
 
     function registerEmail($user_id, $email){
