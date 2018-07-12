@@ -106,7 +106,8 @@ class LineService
 
         return [
             'type' => 'text',
-            'text' => $email . ' に送信用アドレスをお送りしました'
+            'text' => "$transEmail
+にメールを送ってみてください。ここに投稿されます"
         ];
 
     }
@@ -142,7 +143,7 @@ class LineService
 
         return [
             'type' => 'text',
-            'text' => $text . 'ってなんですか？'
+            'text' => $text . 'ってなんですか？それよりあなたのメールアドレスを教えてください'
         ];
     }
 
