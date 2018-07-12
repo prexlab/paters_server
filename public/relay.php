@@ -3,7 +3,7 @@
 
 
 // ここは config/app.php と合わせること
-define('TRANS_TOKEN_REGEXP', '/r\+(.{32})@line.her.jp/');
+define('TRANS_TOKEN_REGEXP', '/line\+(.{32})@dqc.jp/');
 define('STORAGE_PATH', __DIR__ . '/../storage/emails/');
 define('DOMAIN', 'line-email.dqc.jp');
 

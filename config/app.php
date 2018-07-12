@@ -5,9 +5,9 @@ return [
     'site_name'=>'メールくん',
     'site_name_long'=>'メールくん',
     'domain' => env('APP_DOMAIN', 'line-email.dqc.jp'),
-    'email_domain' => env('EMAIL_DOMAIN', 'line.her.jp'),
+    'email_domain' => env('EMAIL_DOMAIN', 'dqc.jp'),
 
-    'trans_token_regexp' => '/r\+(.{32})@line.her.jp/',
+    'trans_token_regexp' => '/line\+(.{32})@dqc.jp/',
 
     'admin_email' => env('APP_ADMIN_EMAIL', 'prex.uchida@gmail.com'),
 
