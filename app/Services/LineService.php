@@ -24,10 +24,14 @@ class LineService
 
         \Log::debug($json);
 
-        $mode = $this->checkMode($json['message']);
+        sleep(rand(0, 2));
 
-        $messageData = $this->$mode($json['userId'],  $json['message']);
+        $messageData = $this->echoBack($json['message']);
+        $this->reply($json['replyToken'], $messageData);
 
+        sleep(rand(0, 2));
+
+        $messageData = $this->registerAndInvitation($json['userId']);
         $this->reply($json['replyToken'], $messageData);
 
     }
@@ -50,33 +54,16 @@ class LineService
     }
 
 
-     function checkMode($messageText){
-
-        return 'registerEmail';
-
-        /*
-        if(preg_match(self::EMAIL_REGEXP, $messageText)){
-            $ret = 'registerEmail';
-        }else if(preg_match(self::TOKEN_REGEXP, $messageText)){
-            $ret = 'checkToken';
-        }else{
-            $ret = 'other';
-        }
-        return $ret;
-        */
-    }
-
     static function getTransEmail($token){
 
         return sprintf('line+%s@%s', $token, config('app.email_domain'));
     }
 
-    function registerEmail($user_id, $email){
+    function registerAndInvitation($user_id){
 
         $obj = $this->emailModel->whereUserId($user_id)->first() ?: (new Email);
 
         $obj->user_id = $user_id;
-        //$obj->email = $email;
         $obj->activate = 0;
         $obj->token = md5($user_id);
         $obj->save();
@@ -87,18 +74,17 @@ class LineService
             'type' => 'text',
             'text' => <<<EOD
 $transEmail
-にメールを送ってみてください。
-ここに投稿されます
+にメールを送るにゃ。
 EOD
         ];
 
     }
 
-    private function other($user_id, $text){
+    private function echoBack($text){
 
         return [
             'type' => 'text',
-            'text' => $text . 'ってなんですか？それよりあなたのメールアドレスを教えてください'
+            'text' => array_random(["{$text}ってなんにゃ？", "{$text}。。知らないにゃ。。", "www", "その話はあとにゃ"])
         ];
     }
 
