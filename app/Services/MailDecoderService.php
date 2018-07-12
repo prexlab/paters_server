@@ -216,7 +216,7 @@ class MailDecoderService {
             'to'      => $this->parseEmail($structure->headers['to']),
             'from'    => $this->parseEmail($structure->headers['from']),
             'subject' => $this->J2U($structure->headers['subject']),
-            'body'    => $cont['body'],
+            'body'    => preg_replace("/[\s\r\n]+$/", '', $cont['body']),
             'headers' => $structure->headers,#110727 uchida 追加
         );
 

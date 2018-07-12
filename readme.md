@@ -4,9 +4,11 @@
 
 ## ムームーメール
 line+***@dqc.jp
+https://muumuu-mail.com/login
 
 ## sakuraメール
 line-email@line-email.dqc.jp
+https://secure.sakura.ad.jp/rscontrol/rs/mailsettings
 
 ## .mailfilter
 cc "| /usr/local/bin/php -q /home/dtv77899/www/line_email/public/relay.php"
