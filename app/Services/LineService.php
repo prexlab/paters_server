@@ -52,6 +52,9 @@ class LineService
 
      function checkMode($messageText){
 
+        return 'registerEmail';
+
+        /*
         if(preg_match(self::EMAIL_REGEXP, $messageText)){
             $ret = 'registerEmail';
         }else if(preg_match(self::TOKEN_REGEXP, $messageText)){
@@ -59,8 +62,8 @@ class LineService
         }else{
             $ret = 'other';
         }
-
         return $ret;
+        */
     }
 
     static function getTransEmail($token){
@@ -70,77 +73,26 @@ class LineService
 
     function registerEmail($user_id, $email){
 
-        $obj = $this->emailModel->whereEmail($email)->first() ?: (new Email);
+        $obj = $this->emailModel->whereUserId($user_id)->first() ?: (new Email);
 
         $obj->user_id = $user_id;
-        $obj->email = $email;
+        //$obj->email = $email;
         $obj->activate = 0;
-        $obj->token = md5($email);
+        $obj->token = md5($user_id);
         $obj->save();
 
-         $transEmail = self::getTransEmail($obj->token);
-
-        $body = "
-ご利用ありがとうございます。
-
-line投稿用メールアドレスは
-{$transEmail}
-です。
-
-";
-        Mail::send(new Simple([
-            'from' => 'noreply@'.config('app.email_domain'),
-            'from_jp' => config('app.site_name'),
-            'to' => $email,
-            'subject' => 'line投稿用アドレスをお送りします',
-            'body'=>  $body
-        ]));
-
-        Mail::send(new Simple([
-            'from' => $email,
-            'from_jp' => '',
-            'to' => config('app.admin_email'),
-            'subject' => config('app.site_name').' 利用あり',
-            'body'=> $body
-        ]));
+        $transEmail = self::getTransEmail($obj->token);
 
         return [
             'type' => 'text',
             'text' => <<<EOD
-ありがとうございます。
 $transEmail
-にメールを送ってみてください。ここに投稿されます
+にメールを送ってみてください。
+ここに投稿されます
 EOD
         ];
 
     }
-
-    /*
-    private function checkToken($user_id, $token){
-
-        $obj = $this->emailModel
-            ->whereUserId($user_id)
-            ->whereToken($token)->first();
-
-        if($obj){
-
-            $obj->activate = 1;
-            $obj->save();
-
-            return [
-                'type' => 'text',
-                'text' =>  'パスコードは承認されました'
-            ];
-        }else{
-
-            return [
-                'type' => 'text',
-                'text' =>  'パスコードは一致しません'
-            ];
-        }
-
-    }
-    */
 
     private function other($user_id, $text){
 
