@@ -80,6 +80,7 @@ class ApiController extends Controller
 
         $files = glob(storage_path('emails/*.txt'));
         foreach($files as $f){
+            echo basename($f);
             $this->receiveEmailTest(basename($f));
         }
 
