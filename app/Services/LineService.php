@@ -65,7 +65,7 @@ class LineService
 
     static function getTransEmail($token){
 
-        return sprintf('r+%s@%s', $token, config('app.email_domain'));
+        return sprintf('line+%s@%s', $token, config('app.email_domain'));
     }
 
     function registerEmail($user_id, $email){
