@@ -29,7 +29,7 @@ class LineService
         $message = $this->getEchoBack($json['message']);
         $this->push($json['userId'], ['type'=>'text', 'text'=>$message]);
 
-        sleep(rand(0, 2));
+        sleep(rand(1, 3));
 
         $email = $this->getTransEmailFromUserId($json['userId']);
         $message = $this->getInvitation($email);
@@ -38,6 +38,8 @@ class LineService
 
     const EMAIL_REGEXP = "/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/";
     const TOKEN_REGEXP = '/^[0-9]{5}$/';
+
+    const MD5_TOKEN_SALT = 'pagyQK2XMWDqpH6rP0q0z1U0drtjifsB';
 
 
     protected function jsonDecode($jsonString){
@@ -59,6 +61,10 @@ class LineService
         return sprintf('line+%s@%s', $token, config('app.email_domain'));
     }
 
+    static function getToken($id){
+        return md5(sprintf('%s-%d', self::MD5_TOKEN_SALT, $id));
+    }
+
     function getTransEmailFromUserId($user_id)
     {
 
@@ -66,7 +72,7 @@ class LineService
 
         $obj->user_id = $user_id;
         $obj->activate = 0;
-        $obj->token = md5($user_id);
+        $obj->token = self::getToken($user_id);
         $obj->save();
 
         return  self::getTransEmail($obj->token);
@@ -82,7 +88,13 @@ EOD;
 
     function getEchoBack($text){
 
-        return array_random(["{$text}ってなんにゃ？", "{$text}。。知らないにゃ。。", "www", "その話はあとにゃ"]);
+        return array_random([
+            "{$text}ってなんにゃ？",
+            "{$text}。。知らないにゃ。。",
+            "www",
+            "その話はあとにゃ",
+            "{$text}って言いたかったんにゃね"
+        ]);
     }
 
 
