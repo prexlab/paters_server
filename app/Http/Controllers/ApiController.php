@@ -58,4 +58,31 @@ class ApiController extends Controller
 
     }
 
+    public function receiveEmailTest($file_name){
+
+        error_reporting(E_ALL & ~ E_DEPRECATED & ~ E_USER_DEPRECATED & ~ E_NOTICE);
+
+        $path = storage_path('emails/' . $file_name);
+
+        if (is_file($path)){
+
+            $mime = new MailDecoderService;
+
+            $stdin = file_get_contents($path);
+
+            $email = $mime->myMimeDecode($stdin);
+
+            dump($email);
+        }
+    }
+
+    public function receiveEmailTestAll(){
+
+        $files = glob(storage_path('emails/*.txt'));
+        foreach($files as $f){
+            $this->receiveEmailTest(basename($f));
+        }
+
+    }
+
 }

@@ -141,7 +141,7 @@ class MailDecoderService {
     */
 
     const INTERNAL_ENCODE = 'UTF-8';
-    const DETECT_ORDER = 'JIS,SJIS,EUC-JP,AUTO,CP936';
+    const DETECT_ORDER = 'UTF-8,JIS,SJIS,EUC-JP,AUTO,CP936';
 
     #150220 uchida http://www.hand-in-hand.biz/c-board/c-board.cgi?cmd=ntr;tree=28;id=0002 	
     function getbody($structure, $i=null, $ary=null){
@@ -208,8 +208,6 @@ class MailDecoderService {
     function myMimeDecodeFunc($structure, $get_attach_flag = true){
 
         $cont = self::getbody($structure);
-
-        print_r($structure);
 
         #110620 uchida メール構成要素の抽出
         $ret = array(
