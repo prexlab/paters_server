@@ -83,7 +83,7 @@ class LineService
         $body = "
 ご利用ありがとうございます。
 
-送信先メールアドレスは
+line投稿用メールアドレスは
 {$transEmail}
 です。
 
@@ -92,7 +92,7 @@ class LineService
             'from' => 'noreply@'.config('app.email_domain'),
             'from_jp' => config('app.site_name'),
             'to' => $email,
-            'subject' => '送信用アドレスをお送りします',
+            'subject' => 'line投稿用アドレスをお送りします',
             'body'=>  $body
         ]));
 
@@ -106,8 +106,11 @@ class LineService
 
         return [
             'type' => 'text',
-            'text' => "$transEmail
-にメールを送ってみてください。ここに投稿されます"
+            'text' => <<<EOD
+ありがとうございます。
+$transEmail
+にメールを送ってみてください。ここに投稿されます
+EOD
         ];
 
     }
