@@ -81,8 +81,9 @@ class LineService
     function getInvitation($transEmail){
 
         return <<<EOD
+さて、秘密のメアド
 $transEmail
-にメールを送るにゃ。
+を授けるにゃ。何か送ってみてにゃ。
 EOD;
     }
 
@@ -93,7 +94,13 @@ EOD;
             "{$text}。。知らないにゃ。。",
             "www",
             "その話はあとにゃ",
-            "{$text}って言いたかったんにゃね"
+            "{$text}って言いたかったんにゃね",
+            "いい話にゃねぇ。。",
+            "。。。",
+            "それいま言う必要あるにゃか？",
+            "melcoは {$text} を覚えた",
+            "{$text}！{$text}！{$text}！",
+            "Internal Server Error. Undefined cat nya."
         ]);
     }
 
