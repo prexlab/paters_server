@@ -119,7 +119,7 @@ EOD;
             $obj->activate = 1;
             $obj->save();
 
-            $this->push($obj->user_id, ['type'=>'text', 'text' => "【{$email['subject']}】\n{$email['text']}"]);
+            $this->push($obj->user_id, ['type'=>'text', 'text' => "{$email['from']}\n【{$email['subject']}】\n{$email['text']}"]);
 
             return [$obj->toArray(), $email];
         }
