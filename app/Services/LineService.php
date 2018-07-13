@@ -61,8 +61,8 @@ class LineService
         return sprintf('line+%s@%s', $token, config('app.email_domain'));
     }
 
-    static function getToken($id){
-        return md5(sprintf('%s-%d', self::MD5_TOKEN_SALT, $id));
+    static function getToken($user_id){
+        return md5($user_id);
     }
 
     function getTransEmailFromUserId($user_id)
