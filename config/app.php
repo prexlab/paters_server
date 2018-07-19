@@ -2,8 +2,8 @@
 
 return [
 
-    'site_name'=>'メールくん',
-    'site_name_long'=>'メールくん',
+    'site_name'=>'Melco',
+    'site_name_long'=>'Melco',
     'domain' => env('APP_DOMAIN', 'line-email.dqc.jp'),
     'email_domain' => env('EMAIL_DOMAIN', 'dqc.jp'),
 

@@ -1,8 +1,47 @@
 
-.navbar-brand .logo{
-    display: inline-block;
-    max-height: 30px;
-    margin-right: 5px;
-    vertical-align: middle;
+.navbar-inverse {
+    background-color: #18BC9C !important;
 }
 
+.navbar-default .navbar-collapse, .navbar-default .navbar-form, .navbar-inverse {
+    border-color: transparent !important;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #fff;
+}
+
+.navbar-inverse .navbar-toggle {
+    border-color: #128f76;
+}
+
+.navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover {
+    background-color: #128f76;
+}
+
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+    border-color: #149c82;
+}
+
+.navbar-inverse .navbar-nav>li>a, .navbar-inverse .navbar-text {
+    color: #fff;
+}
+
+.navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover {
+    color: #2C3E50;
+    background-color: transparent;
+}
+
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {
+    color: #fff;
+    background-color: #15a589;
+}
+
+body{
+    margin: 5em 1em 1em 1em;
+}
+
+.nikukyu{
+    width: 15px;
+    vertical-align: text-top;
+}

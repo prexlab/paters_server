@@ -75,4 +75,12 @@ $body_head = "
         return view('contact', compact('success', 'request'));
     }
 
+    function privacy(){
+        return view('privacy');
+    }
+
+    function index(){
+        return view('index');
+    }
+
 }

@@ -12,9 +12,9 @@
 */
 
 
-Route::get('/', 'ApiController@index');
+Route::get('/', 'EtcController@index');
 
-/*
+Route::get('privacy', 'EtcController@privacy');
+
 Route::get('contact', 'EtcController@contact');
 Route::post('contact', 'EtcController@contact');
-*/

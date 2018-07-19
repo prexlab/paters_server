@@ -22,11 +22,6 @@ class ApiController extends Controller
         $this->line = $line;
     }
 
-    public function index()
-    {
-        return 1;
-    }
-
 
     public function callBack(){
 
