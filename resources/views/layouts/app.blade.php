@@ -6,6 +6,7 @@
         {{ config('app.site_name_long') }}
         @endif
         </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/css/style.css?{{ uniqid() }}" rel="stylesheet">
     <link href="/assets/css/nikukyu.css" rel="stylesheet">
