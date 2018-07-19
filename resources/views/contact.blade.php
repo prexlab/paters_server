@@ -18,7 +18,7 @@
 use App\Services\Form;
 ?>
 
-    <h1>お問い合わせ</h1>
+    <h3>お問い合わせ</h3>
 
     <p><?=config('app.site_name'); ?> に関するお問い合わせはこちらからご相談ください。</p>
     <p>&nbsp;</p>
