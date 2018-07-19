@@ -4,16 +4,9 @@
 
 @section('head')
 
-    <style>
-        body{
-            margin: 5em 1em 1em 1em;
-        }
-    </style>
-
     <script>
         $(function(){
             $('#nav_contact').addClass('active');
-
         });
     </script>
 

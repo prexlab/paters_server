@@ -30,6 +30,13 @@
 
 </style>
 
+<script>
+    $(function(){
+        $('#nav_top').addClass('active');
+    });
+</script>
+
+
 @endsection
 
 @section('content')

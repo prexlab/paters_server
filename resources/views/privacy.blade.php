@@ -6,14 +6,20 @@
 @section('head')
 
 <style>
-ul{
+#main ul{
     padding-left: 1rem;
 }
-    ul li{
+    #main ul li{
         margin-bottom: 2rem;
     }
 
 </style>
+
+<script>
+    $(function(){
+        $('#nav_privacy').addClass('active');
+    });
+</script>
 
 @endsection
 
