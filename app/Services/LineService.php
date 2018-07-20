@@ -105,6 +105,8 @@ EOD;
     }
 
 
+    const LINE_BODY_LIMIT = 1500; //{"message":"Length must be between 0 and 2000","property":"messages[0].text"}
+
     function receiveEmail($email){
 
         \Log::debug(json_encode($email));
@@ -119,7 +121,11 @@ EOD;
             $obj->activate = 1;
             $obj->save();
 
-            $this->push($obj->user_id, ['type'=>'text', 'text' => "{$email['from']}\n【{$email['subject']}】\n{$email['text']}"]);
+
+            $text = "{$email['from']}\n【{$email['subject']}】\n{$email['text']}";
+            $text = mb_strimwidth($text, 0, self::LINE_BODY_LIMIT, '...');
+
+            $this->push($obj->user_id, ['type'=>'text', 'text' => $text]);
 
             return [$obj->toArray(), $email];
         }
