@@ -32,7 +32,9 @@ class UserImage extends Model
 
         $path = UserImage::getAbsolutePath($basename);
         $image = Image::make($path);
-        $image->resize(900, null)->save($path);
+        $image->resize(900, 900, function ($constraint) {
+            $constraint->aspectRatio();
+        })->save($path);
 
         $image = Image::make(UserImage::getAbsolutePath($basename));
         $image->fit(200, 200)->save(UserImage::getAbsolutePath($basename, true));
