@@ -37,10 +37,15 @@ class UsersController extends ApiController
         $user->drinking;
         $user->smoking;
         $user->figure;
-        $user->haveChildren;
+        $user->haveChild;
+        $user->blood;
         $user->job;
         $user->holiday;
+        $user->birthPlace;
         $user->requireUntilMeet;
+        $user->educationalBackground;
+        $user->requestUntilMeet;
+
 
         $user->imagePaths = $user->image_paths;
         $user->thumbnailPaths = $user->thumbnail_paths;

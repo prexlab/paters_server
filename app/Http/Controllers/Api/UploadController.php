@@ -30,7 +30,9 @@ class UploadController extends ApiController
             $user->images = [$filename];
             $user->save();
 
-            UserImage::makeThumbail($filename);
+            $user->thumbnailPaths = $user->thumbnail_paths;
+
+            UserImage::makeThumbnail($filename);
 
             Log::debug(print_r([$request->file('image'), $_POST, $_FILES, $_SERVER], 1));
 

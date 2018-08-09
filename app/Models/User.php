@@ -17,6 +17,12 @@ class User extends Model
         return $this->belongsTo(Address::class);
     }
 
+    function birthPlace(){
+        return $this->belongsTo(Address::class, 'birth_place_id');
+    }
+
+
+
     function annualIncome(){
         return $this->belongsTo(AnnualIncome::class);
     }
@@ -55,6 +61,10 @@ class User extends Model
 
     function requestUntilMeet(){
         return $this->belongsTo(RequestUntilMeet::class);
+    }
+
+    function job(){
+        return $this->belongsTo(Job::class);
     }
 
     function smoking(){
