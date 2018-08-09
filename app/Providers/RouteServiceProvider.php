@@ -39,7 +39,21 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
 
+        $this->mapDevRoutes();
         //
+    }
+
+    /**
+     * 開発用routing（routes/dev.php）があれば追加
+     */
+    protected function mapDevRoutes()
+    {
+        $path = base_path('routes/dev.php');
+        if(file_exists($path)){
+            Route::middleware('web')
+                ->namespace($this->namespace)
+                ->group($path);
+        }
     }
 
     /**

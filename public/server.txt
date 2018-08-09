@@ -1,0 +1,92 @@
+Array
+(
+    [PHP_EXTRA_CONFIGURE_ARGS] => --enable-fpm --with-fpm-user=www-data --with-fpm-group=www-data
+    [HOSTNAME] => 286829b32fa4
+    [PHP_INI_DIR] => /usr/local/etc/php
+    [HOME] => /var/www
+    [PHP_IDE_CONFIG] => serverName=laradock
+    [PHP_LDFLAGS] => -Wl,-O1 -Wl,--hash-style=both -pie
+    [PHP_CFLAGS] => -fstack-protector-strong -fpic -fpie -O2
+    [PHP_MD5] => a74c13f8779349872b365e6732e8c98e
+    [PHP_VERSION] => 7.1.4
+    [GPG_KEYS] => A917B1ECDA84AEC2B568FED6F50ABC807BD5DCD0 528995BFEDFBA7191D46839EF9BA0ADA31CBD89E
+    [INSTALL_MSSQL] => false
+    [PHP_CPPFLAGS] => -fstack-protector-strong -fpic -fpie -O2
+    [PHP_ASC_URL] => https://secure.php.net/get/php-7.1.4.tar.xz.asc/from/this/mirror
+    [INSTALL_AEROSPIKE] => false
+    [PHP_URL] => https://secure.php.net/get/php-7.1.4.tar.xz/from/this/mirror
+    [PATH] => /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+    [PHPIZE_DEPS] => autoconf 		file 		g++ 		gcc 		libc-dev 		make 		pkg-config 		re2c
+    [PWD] => /var/www
+    [PHP_SHA256] => 71514386adf3e963df087c2044a0b3747900b8b1fc8da3a99f0a0ae9180d300b
+    [DB_1_ENV_MYSQL_PASSWORD] => 
+    [DB_1_ENV_MYSQL_USER] => 
+    [DB_1_ENV_MYSQL_DATABASE] => 
+    [USER] => www-data
+    [HTTP_ACCEPT_LANGUAGE] => ja
+    [HTTP_ACCEPT_ENCODING] => gzip, deflate
+    [HTTP_CONTENT_TYPE] => application/json;charset=UTF-8
+    [HTTP_USER_AGENT] => Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) MonacaLocalkit/2.7.0 Chrome/59.0.3071.115 Electron/1.8.7 Safari/537.36
+    [HTTP_X_DEVTOOLS_REQUEST_ID] => 37304.38
+    [HTTP_ORIGIN] => file://
+    [HTTP_ACCEPT] => application/json, text/plain, */*
+    [HTTP_CONTENT_LENGTH] => 700
+    [HTTP_CONNECTION] => keep-alive
+    [HTTP_HOST] => localhost:9970
+    [REDIRECT_STATUS] => 200
+    [SERVER_NAME] => localhost
+    [SERVER_PORT] => 80
+    [SERVER_ADDR] => 172.28.0.5
+    [REMOTE_PORT] => 49266
+    [REMOTE_ADDR] => 172.28.0.1
+    [SERVER_SOFTWARE] => nginx/1.13.8
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [REQUEST_SCHEME] => http
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [DOCUMENT_ROOT] => /var/www/public
+    [DOCUMENT_URI] => /index.php
+    [REQUEST_URI] => /api/user/save
+    [SCRIPT_NAME] => /index.php
+    [CONTENT_LENGTH] => 700
+    [CONTENT_TYPE] => application/json;charset=UTF-8
+    [REQUEST_METHOD] => POST
+    [QUERY_STRING] => 
+    [SCRIPT_FILENAME] => /var/www/public/index.php
+    [FCGI_ROLE] => RESPONDER
+    [PHP_SELF] => /index.php
+    [REQUEST_TIME_FLOAT] => 1533656564.5048
+    [REQUEST_TIME] => 1533656564
+    [APP_NAME] => Laravel
+    [APP_ENV] => local
+    [APP_KEY] => base64:riY7XzLDFvpcMl6TQrD0XJwBOZNEx9j5razgoAfkL9A=
+    [APP_DEBUG] => true
+    [APP_URL] => http://localhost:9940
+    [LOG_CHANNEL] => stack
+    [DB_CONNECTION] => mysql
+    [DB_HOST] => mysql
+    [DB_PORT] => 3306
+    [DB_DATABASE] => laradock
+    [DB_USERNAME] => root
+    [DB_PASSWORD] => root
+    [BROADCAST_DRIVER] => log
+    [CACHE_DRIVER] => file
+    [SESSION_DRIVER] => file
+    [SESSION_LIFETIME] => 120
+    [QUEUE_DRIVER] => sync
+    [REDIS_HOST] => 127.0.0.1
+    [REDIS_PASSWORD] => null
+    [REDIS_PORT] => 6379
+    [MAIL_DRIVER] => smtp
+    [MAIL_HOST] => smtp.mailtrap.io
+    [MAIL_PORT] => 2525
+    [MAIL_USERNAME] => 8014fcc3f76527
+    [MAIL_PASSWORD] => 7868332ca37b80
+    [MAIL_ENCRYPTION] => null
+    [PUSHER_APP_ID] => 
+    [PUSHER_APP_KEY] => 
+    [PUSHER_APP_SECRET] => 
+    [PUSHER_APP_CLUSTER] => mt1
+    [MIX_PUSHER_APP_KEY] => 
+    [MIX_PUSHER_APP_CLUSTER] => mt1
+    [LINE_ACCESS_TOKEN] => jBzDJuEGkTzhhfX4r0qDslnBBfo7qSo/zICgtIG6TVIXfmaYjsQ8kth3Irbf65fL65c14vyj/v2CtKG3vyH8FXeK+AUe+ihhLIzK0h+WIZJ2CrRBEZ1U8NkYJUGkBSdBvb1CndLN3fIx6Y1bq/bPSwdB04t89/1O/w1cDnyilFU=
+)

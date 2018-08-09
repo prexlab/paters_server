@@ -2,15 +2,6 @@
 
 return [
 
-    'site_name'=>'Melco',
-    'site_name_long'=>'Melco',
-    'domain' => env('APP_DOMAIN', 'line-email.dqc.jp'),
-    'email_domain' => env('EMAIL_DOMAIN', 'dqc.jp'),
-
-    'trans_token_regexp' => '/line\+(.{32})@dqc.jp/',
-
-    'admin_email' => env('APP_ADMIN_EMAIL', 'prex.uchida@gmail.com'),
-
     /*
     |--------------------------------------------------------------------------
     | Application Name
@@ -22,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'PATERS_SERVER'),
 
     /*
     |--------------------------------------------------------------------------
@@ -74,7 +65,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Tokyo',
 
     /*
     |--------------------------------------------------------------------------
@@ -87,7 +78,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => env('APP_LOCALE', 'ja'),
 
     /*
     |--------------------------------------------------------------------------
@@ -100,7 +91,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => env('APP_FALLBACK_LOCALE', 'ja'),
 
     /*
     |--------------------------------------------------------------------------
@@ -168,6 +159,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
+        Barryvdh\Cors\ServiceProvider::class,
 
     ],
 

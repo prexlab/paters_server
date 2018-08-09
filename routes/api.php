@@ -13,16 +13,16 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/callback', 'ApiController@index');
-Route::post('/callback', 'ApiController@callback');
+Route::get('/masters', 'Api\MasterController@index');
+
+Route::get('/users', 'Api\UsersController@index');
+Route::post('/user/save', 'Api\UsersController@save');
+Route::get('/user/{id}', 'Api\UsersController@show');
 
 
-Route::get('/receive_email/{file_name}', 'ApiController@receiveEmail');
+Route::get('/masters/seeder', 'Api\MasterController@seeder');
+Route::get('/users/seeder', 'Api\UsersController@seeder');
+
+Route::post('/upload', 'Api\UploadController@upload');
 
 
-Route::get('/receive_email_test/all', 'ApiController@receiveEmailTestAll');
-Route::get('/receive_email_test/{file_name}', 'ApiController@receiveEmailTest');
-
-#Route::middleware('auth:api')->get('/user', function (Request $request) {
-#    return $request->user();
-#});

@@ -1,0 +1,50 @@
+Array
+(
+    [id] => 1
+    [user] => Array
+        (
+            [id] => 1
+            [name] => ゆき
+            [age] => 21
+            [tweet] => メッセージ待ってます！
+            [comment] => 
+            [dream] => 
+            [address_id] => 12
+            [annual_income_id] => 
+            [job_id] => 
+            [height] => 
+            [figure_id] => 
+            [smoking_id] => 
+            [drinking_id] => 
+            [request_until_meet_id] => 
+            [blood_id] => 
+            [have_child_id] => 
+            [holiday_id] => 
+            [birth_place_id] => 
+            [hobby] => 
+            [educational_background_id] => 
+            [school_name] => 
+            [job_name] => 
+            [created_at] => 2018-08-07 08:22:42
+            [updated_at] => 2018-08-07 08:22:42
+            [images] => Array
+                (
+                    [0] => 1.jpeg
+                )
+
+            [address] => Array
+                (
+                    [id] => 12
+                    [name] => 奈良県
+                    [created_at] => 2018-08-07 07:27:26
+                    [updated_at] => 2018-08-07 07:27:26
+                )
+
+            [annual_income] => 
+            [drinking] => 
+            [smoking] => 
+            [figure] => 
+            [holiday] => 
+        )
+
+)

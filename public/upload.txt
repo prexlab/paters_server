@@ -1,0 +1,33 @@
+Array
+(
+    [0] => Illuminate\Http\UploadedFile Object
+        (
+            [test:Symfony\Component\HttpFoundation\File\UploadedFile:private] => 
+            [originalName:Symfony\Component\HttpFoundation\File\UploadedFile:private] => image%3A11872
+            [mimeType:Symfony\Component\HttpFoundation\File\UploadedFile:private] => text/plain
+            [size:Symfony\Component\HttpFoundation\File\UploadedFile:private] => 5964974
+            [error:Symfony\Component\HttpFoundation\File\UploadedFile:private] => 0
+            [hashName:protected] => uX3FNwO46qTE30WDd9L9TN34PILTsXSKxSuEfJBY
+            [pathName:SplFileInfo:private] => /tmp/php9zNQ1G
+            [fileName:SplFileInfo:private] => php9zNQ1G
+        )
+
+    [1] => Array
+        (
+            [user_id] => zzzzz
+        )
+
+    [2] => Array
+        (
+            [image] => Array
+                (
+                    [name] => image%3A11872
+                    [type] => text/plain
+                    [tmp_name] => /tmp/php9zNQ1G
+                    [error] => 0
+                    [size] => 5964974
+                )
+
+        )
+
+)
