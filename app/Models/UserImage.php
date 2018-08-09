@@ -30,6 +30,10 @@ class UserImage extends Model
 
     static function makeThumbnail($basename){
 
+        $path = UserImage::getAbsolutePath($basename);
+        $image = Image::make($path);
+        $image->resize(900, 900)->save($path);
+
         $image = Image::make(UserImage::getAbsolutePath($basename));
         $image->fit(200, 200)->save(UserImage::getAbsolutePath($basename, true));
     }
