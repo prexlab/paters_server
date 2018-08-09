@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Requests\UploadRequest;
+use App\Models\User;
+use App\Models\UserImage;
+use Illuminate\Support\Facades\Log;
 
 class UploadController extends ApiController
 {
@@ -15,15 +18,28 @@ class UploadController extends ApiController
 
     public function upload(UploadRequest $request)
     {
-        //php artisan storage:link
-        //http://localhost:9970/storage/users/B5SldJmwmUuaeyRjjkWelvUBoWCQ5CU2cxdERf3B.jpeg
-        $filename = $request->file('image')->store('public/users');
 
-        file_put_contents('upload.txt', print_r([$request->file('image'), $_POST, $_FILES], 1));
+        try{
+            //php artisan storage:link
+            // storage/app/public/users/3vULtKZWjtwpqL6ekZSnYT0lm9TDoShGGX5qjxxa.jpeg
+            // http://localhost:9970/storage/users/B5SldJmwmUuaeyRjjkWelvUBoWCQ5CU2cxdERf3B.jpeg
+            $filename = $request->file('image')->store(UserImage::STORE_PATH);
+            $filename = basename($filename);
 
-        $ret = ['status'=>'ok', 'file'=>$filename];
+            $user = User::find(1);
+            $user->images = [$filename];
+            $user->save();
 
-        return $this->responseJsonSuccess($ret);
+            UserImage::makeThumbail($filename);
+
+            Log::debug(print_r([$request->file('image'), $_POST, $_FILES, $_SERVER], 1));
+
+            return $this->responseJsonSuccess($user->toArray());
+
+        }catch(\Exception $e){
+            return $this->responseJsonFailed($e->getMessage());
+        }
+
     }
 
 

@@ -61,6 +61,23 @@ class User extends Model
         return $this->belongsTo(Smoking::class);
     }
 
+    function getImagePathsAttribute(){
+        $ret = [];
+        foreach($this->images as $image){
+            $ret[] = UserImage::getUrl($image);
+        }
+        return $ret;
+    }
+
+    function getThumbnailPathsAttribute(){
+        $ret = [];
+        foreach($this->images as $image){
+            $ret[] = UserImage::getUrl($image, true);
+        }
+        return $ret;
+    }
+
+
     /*
     function userImages(){
         $this->hasMany(UserImage::class);

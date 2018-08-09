@@ -21,6 +21,8 @@ class UsersController extends ApiController
         foreach ($users as $user) {
             $user->address;
             $user->blood;
+            $user->imagePaths = $user->image_paths;
+            $user->thumbnailPaths = $user->thumbnail_paths;
         }
 
         return $this->responseJsonSuccess($users);
@@ -39,6 +41,9 @@ class UsersController extends ApiController
         $user->job;
         $user->holiday;
         $user->requireUntilMeet;
+
+        $user->imagePaths = $user->image_paths;
+        $user->thumbnailPaths = $user->thumbnail_paths;
 
         return $this->responseJsonSuccess($user);
     }
