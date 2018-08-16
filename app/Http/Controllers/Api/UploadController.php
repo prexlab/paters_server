@@ -30,6 +30,7 @@ class UploadController extends ApiController
             $user->images = [$filename];
             $user->save();
 
+            $user->imagePaths = $user->image_paths;
             $user->thumbnailPaths = $user->thumbnail_paths;
 
             UserImage::makeThumbnail($filename);
